@@ -1,43 +1,42 @@
 import Header from "./Header";
 import Note from "./Note";
 import Footer from "./Footer";
-
-function NoteFour(props){
+import noteList from "../noteList";
+/*
+function creatnote(note){
   return (
-      <div className="note">
-          <h1>{props.title.t_value}</h1>
-          <p>{props.content.cont_value}</p>
-          <p>{props.emoji.emj}</p>
-      </div>
+    <Note 
+    unique_key = {note.unique_key}
+    title ={note.title}
+    content ={note.content}
+    emoji = {note.emoji}
+    />
   );
-  }
+  */
+
+
 function App() {
-//passing varible through props
-  const t_value  = "T3";
-  const cont_value = "c3"; 
-  const emj  = "👽";
-
-//passing object through props
-
-var noteinfo4 = {
-   t_value  :"T4",
-   cont_value :"c4", 
-   emj : "😵‍💫"
-}
-
   return (
     <div>
-     <Header />
-     {/* simple props */}
-     <Note title= "T1" content ="c1" emoji="😀" />
-     <Note title= "T2" content ="c2" emoji="😶‍🌫️"/>
-     {/* props through variable */}
-     <Note title= {t_value} content = {cont_value} emoji={emj}/>
+      <Header />
+      {/* props through array*/}
+      {/* <Note title={noteList[0].title} content={noteList[0].content} emoji={noteList[0].emoji} />
+      <Note title={noteList[1].title} content={noteList[1].content} emoji={noteList[1].emoji} />
+      <Note title={noteList[2].title} content={noteList[2].content} emoji={noteList[2].emoji} />
+      <Note title={noteList[3].title} content={noteList[3].content} emoji={noteList[3].emoji} />
+      <Note title={noteList[4].title} content={noteList[4].content} emoji={noteList[4].emoji} />
+       */}
+      {/* the above 5 card can be done using only single statement. */}
+      {/* use .map() method */}
+
+      {/* {noteList.map(creatnote)} */}
+      {/* or */}
+      
+      {noteList.map(Note)}
 
 
-    {/* props through objects */}
-     <NoteFour title= {noteinfo4} content ={noteinfo4} emoji={noteinfo4}/>
-     <Footer/>
+
+      <Footer />
     </div>
   );
 }
