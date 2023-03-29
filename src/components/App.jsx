@@ -1,45 +1,49 @@
+import React from "react";
 import Header from "./Header";
-import Note from "./Note";
 import Footer from "./Footer";
-import noteList from "../noteList";
-/*
-function creatnote(note){
-  return (
-    <Note 
-    unique_key = {note.unique_key}
-    title ={note.title}
-    content ={note.content}
-    emoji = {note.emoji}
-    />
-  );
-  */
+import Note from "./Note";
+import CreateArea from "./CreateArea";
 
+import { useState } from "react";
 
 function App() {
+
+  //array for notes:
+
+  const [notes, setnotes] = useState([]);
+
+  // notes.map((noteItem=>{
+
+  // }));
+
+
+function addNote(newNote){
+  setnotes((prevNotes)=>{
+   return [...prevNotes,newNote];
+  })
+}
+
+function deleteNote(noteId){
+
+  setnotes( (prevNotes)=>{
+    return prevNotes.filter((noteItem,index)=>{
+      return noteId !== index; 
+    })
+  })
+
+}
   return (
     <div>
       <Header />
-      {/* props through array*/}
-      {/* <Note title={noteList[0].title} content={noteList[0].content} emoji={noteList[0].emoji} />
-      <Note title={noteList[1].title} content={noteList[1].content} emoji={noteList[1].emoji} />
-      <Note title={noteList[2].title} content={noteList[2].content} emoji={noteList[2].emoji} />
-      <Note title={noteList[3].title} content={noteList[3].content} emoji={noteList[3].emoji} />
-      <Note title={noteList[4].title} content={noteList[4].content} emoji={noteList[4].emoji} />
-       */}
-      {/* the above 5 card can be done using only single statement. */}
-      {/* use .map() method */}
+      <CreateArea onAdd = {addNote} />
+      {/* <Note key={1} title="Note title" content="Note content" /> */}
 
-      {/* {noteList.map(creatnote)} */}
-      {/* or */}
-
-      {/* {noteList.map(Note)} */}
-      {/* or */}
-
-      {noteList.map(noteItem => ( <Note title={noteItem.title} content={noteItem.content} emoji = {noteItem.emoji}/> ))}
-
-      
-
-
+      {
+        //using .map() to iterate over notes items. 
+        notes.map((noteItem,index)=>{
+            return (<Note  key = {index} id = {index} onDelete= {deleteNote} title= {noteItem.title} content = {noteItem.content} />);
+        })
+      }
       <Footer />
     </div>
   );
