@@ -27,6 +27,12 @@ const noteList = [
         title:"T5", 
         content:"c5", 
         emoji:"😎"
+   },
+   {
+    unique_key : "5",
+    title:"T5", 
+    content:"c5", 
+    emoji:"😎"
    }
 ]
 

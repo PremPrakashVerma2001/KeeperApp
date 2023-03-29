@@ -31,9 +31,13 @@ function App() {
 
       {/* {noteList.map(creatnote)} */}
       {/* or */}
-      
-      {noteList.map(Note)}
 
+      {/* {noteList.map(Note)} */}
+      {/* or */}
+
+      {noteList.map(noteItem => ( <Note title={noteItem.title} content={noteItem.content} emoji = {noteItem.emoji}/> ))}
+
+      
 
 
       <Footer />
