@@ -7,7 +7,7 @@ function Footer(){
 
     return(
         <footer>
-
+            <p>Made with <span>React.js</span>  </p>
             <p> Copyright ©️ {curr_year}</p>
         </footer>
     );
