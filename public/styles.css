@@ -252,7 +252,7 @@
   form.create-note textarea {
     width: 100%;
     border:none ;
-    border-bottom: dashed;
+    border-bottom: rgb(189, 188, 188) dashed;
     padding: 4px;
     outline: none;
     font-size: 1.2em;
